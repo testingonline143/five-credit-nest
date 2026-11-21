@@ -16,6 +16,24 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const EXPERTISE = [
+  { title: "Space Planning", text: "Layouts that respect how you move through each room, so space feels open and nothing is wasted." },
+  { title: "Kitchen Ergonomics", text: "Sensible placement of hob, sink and storage, with counter heights and drawers planned for daily cooking." },
+  { title: "Storage That Fits Life", text: "Wardrobes, lofts and units sized for what you actually own, keeping every room clutter-free." },
+  { title: "Material Selection", text: "We explain the options for boards, laminates, finishes and hardware, so you choose with confidence." },
+  { title: "Layered Lighting", text: "Ambient, task and accent lighting planned together for comfort, function and mood." },
+  { title: "Moisture-Aware Design", text: "Kitchens and bathrooms planned with suitable materials and finishes for wet, high-use areas." },
+];
+
+const FAQS = [
+  { q: "How do we get started?", a: "Call or WhatsApp us. We begin with a conversation about your home, needs, style and budget, then plan the next steps together." },
+  { q: "Will I see the design before work begins?", a: "Yes. We prepare 3D designs so you can visualise your space and refine it with us before anything is manufactured." },
+  { q: "Can I choose materials and finishes?", a: "Absolutely. We walk you through suitable options and explain the differences so the final choice is yours." },
+  { q: "How is the cost decided?", a: "Cost depends on your space, scope and material choices. We share a clear, itemised quote so you know exactly what you are paying for." },
+  { q: "How long does a project take?", a: "Timelines depend on the scope of work. We discuss a realistic schedule with you once the design is finalised." },
+  { q: "Do you handle full homes or single rooms?", a: "Both. We design complete home interiors as well as individual spaces like kitchens, bedrooms or living rooms." },
+];
+
 function Home() {
   return (
     <>
@@ -32,6 +50,9 @@ function Home() {
             <Link to="/services" className="btn btn-gold">Explore Our Services</Link>
             <Link to="/contact" className="btn btn-line">Contact Us</Link>
           </div>
+          <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-ink-foreground/70">
+            Consultation <span className="text-gold">·</span> 3D Design <span className="text-gold">·</span> Manufacturing <span className="text-gold">·</span> Installation
+          </p>
         </div>
       </section>
 
@@ -78,6 +99,19 @@ function Home() {
       </section>
 
       <section className="wrap py-24">
+        <SectionTitle eyebrow="Design Expertise" title="The details that make a home work." text="Beautiful interiors come from getting the practical decisions right. These are the things we plan carefully with every homeowner." />
+        <div className="mt-12 grid gap-px overflow-hidden rounded bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {EXPERTISE.map((e, i) => (
+            <div key={e.title} className="reveal bg-background p-8" style={{ transitionDelay: `${(i % 3) * 90}ms` }}>
+              <p className="font-display text-3xl text-gold-gradient">{String(i + 1).padStart(2, "0")}</p>
+              <h3 className="mt-3 text-2xl">{e.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-secondary py-24"><div className="wrap">
         <SectionTitle eyebrow="Inspiration" title="Selected Interior Inspiration" />
         <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
           {[IMG.kitchen, IMG.bedroom, IMG.dining, IMG.foyer].map((src, i) => (
@@ -87,7 +121,7 @@ function Home() {
           ))}
         </div>
         <Link to="/projects" className="btn btn-line mt-10">View Gallery</Link>
-      </section>
+      </div></section>
 
       <section className="bg-ink py-24 text-ink-foreground">
         <div className="wrap grid gap-12 md:grid-cols-2">
@@ -126,6 +160,21 @@ function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="wrap grid gap-12 py-24 md:grid-cols-[1fr_1.4fr]">
+        <SectionTitle eyebrow="Questions" title="What homeowners usually ask us." text="Clear answers before you begin, so you always know what to expect." />
+        <div className="reveal divide-y border-y">
+          {FAQS.map((f) => (
+            <details key={f.q} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-xl md:text-2xl">
+                {f.q}
+                <span className="text-gold transition-transform duration-300 group-open:rotate-45">+</span>
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
         </div>
       </section>
 
