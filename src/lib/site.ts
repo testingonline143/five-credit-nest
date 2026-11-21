@@ -1,12 +1,12 @@
-import kitchen from "@/assets/modular-kitchen.webp.asset.json";
-import living from "@/assets/living-room.webp.asset.json";
-import bedroom from "@/assets/master-bedroom.webp.asset.json";
-import dining from "@/assets/dining-space.webp.asset.json";
-import bathroom from "@/assets/bathroom.webp.asset.json";
-import foyer from "@/assets/foyer-panelling.webp.asset.json";
-import office from "@/assets/home-office.webp.asset.json";
-import home from "@/assets/home-interior.webp.asset.json";
-import logo from "@/assets/vaaradhi-logo-trim.png.asset.json";
+import kitchen from "@/assets/modular-kitchen.webp";
+import living from "@/assets/living-room.webp";
+import bedroom from "@/assets/master-bedroom.webp";
+import dining from "@/assets/dining-space.webp";
+import bathroom from "@/assets/bathroom.webp";
+import foyer from "@/assets/foyer-panelling.webp";
+import office from "@/assets/home-office.webp";
+import home from "@/assets/home-interior.webp";
+import logo from "@/assets/vaaradhi-logo-trim.png";
 
 export const BRAND = "VAARADHI INNOVATIONS";
 export const PHONE_DISPLAY = "+91 9620914914";
@@ -15,8 +15,8 @@ export const WA_NUMBER = "919620914914";
 export const WA_LINK = `https://wa.me/${WA_NUMBER}`;
 export const ADDRESS =
   "Door No. 301, Site No. 09, Krishne Gowda Compound, Hagadur, Whitefield, Bengaluru Urban, Karnataka – 560066";
-export const LOGO = logo.url;
-export const IMG = { kitchen: kitchen.url, living: living.url, bedroom: bedroom.url, dining: dining.url, bathroom: bathroom.url, foyer: foyer.url, office: office.url, home: home.url };
+export const LOGO = logo;
+export const IMG = { kitchen: kitchen, living: living, bedroom: bedroom, dining: dining, bathroom: bathroom, foyer: foyer, office: office, home: home };
 
 export const NAV = [
   { to: "/", label: "Home" },

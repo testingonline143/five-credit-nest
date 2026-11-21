@@ -31,3 +31,4 @@ use the editor.
 
 - Site content (services, contact, process) lives in src/lib/site.ts; pages read from it so details change in one place.
 - Header/footer are rendered in src/routes/__root.tsx around <Outlet />.
+- Site images are committed files in src/assets imported directly (not Lovable CDN pointers), because the site is also deployed on Vercel where /__l5e asset URLs don't exist.
