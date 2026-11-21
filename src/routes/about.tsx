@@ -28,11 +28,11 @@ function About() {
       </section>
       <section className="bg-secondary py-24">
         <div className="wrap grid gap-6 md:grid-cols-2">
-          <div className="rounded bg-card p-10">
+          <div className="reveal card-lift rounded bg-card p-10">
             <p className="eyebrow">Our Vision</p>
             <p className="mt-4 font-display text-2xl leading-snug md:text-3xl">To create homes that inspire, comfort and truly reflect the people who live in them.</p>
           </div>
-          <div className="rounded bg-card p-10">
+          <div className="reveal card-lift rounded bg-card p-10">
             <p className="eyebrow">Our Mission</p>
             <p className="mt-4 font-display text-2xl leading-snug md:text-3xl">To deliver thoughtful, functional interiors through honest communication and careful craftsmanship.</p>
           </div>

@@ -35,7 +35,7 @@ function Projects() {
         <p className="max-w-2xl text-sm text-muted-foreground">The images below are illustrative design inspiration showing the style and quality of interiors we create.</p>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {GALLERY.map((g, i) => (
-            <figure key={g.label} className={`group relative overflow-hidden rounded ${i === 0 ? "sm:col-span-2" : ""}`}>
+            <figure key={g.label} className={`reveal card-lift group relative overflow-hidden rounded ${i === 0 ? "sm:col-span-2" : ""}`}>
               <img src={g.src} alt={`${g.label} interior inspiration`} className="img-zoom aspect-[3/2] h-full w-full object-cover" loading="lazy" />
               <figcaption className="absolute bottom-0 left-0 bg-ink/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-foreground">{g.label}</figcaption>
             </figure>

@@ -22,7 +22,7 @@ function Services() {
       <PageHero eyebrow="Our Services" title="Thoughtfully Designed. Beautifully Brought to Life." img={IMG.kitchen} />
       <section className="wrap space-y-20 py-24">
         {SERVICES.map((s, i) => (
-          <article key={s.name} className="grid items-center gap-10 md:grid-cols-2">
+          <article key={s.name} className="reveal grid items-center gap-10 md:grid-cols-2">
             <img src={s.img} alt={s.name} className={`aspect-[3/2] w-full rounded object-cover ${i % 2 ? "md:order-2" : ""}`} loading="lazy" />
             <div>
               <p className="font-display text-5xl text-gold">{String(i + 1).padStart(2, "0")}</p>

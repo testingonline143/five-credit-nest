@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { ADDRESS, BRAND, LOGO, NAV, PHONE_DISPLAY, PHONE_TEL, SERVICES, WA_LINK } from "@/lib/site";
 
 export function Header() {
@@ -81,7 +81,7 @@ export function Footer() {
 export function PageHero({ eyebrow, title, img }: { eyebrow: string; title: string; img: string }) {
   return (
     <section className="relative flex min-h-[46vh] items-end overflow-hidden">
-      <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={img} alt="" className="ken-burns absolute inset-0 h-full w-full object-cover" />
       <div className="hero-shade absolute inset-0" />
       <div className="wrap relative pb-14 pt-32 text-ink-foreground fade-up">
         <p className="eyebrow">{eyebrow}</p>
@@ -93,7 +93,7 @@ export function PageHero({ eyebrow, title, img }: { eyebrow: string; title: stri
 
 export function SectionTitle({ eyebrow, title, text, center }: { eyebrow: string; title: string; text?: string; center?: boolean }) {
   return (
-    <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
+    <div className={`reveal ${center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
       <p className="eyebrow">{eyebrow}</p>
       <h2 className="mt-3 text-3xl md:text-5xl">{title}</h2>
       <div className={`gold-rule mt-5 ${center ? "mx-auto" : ""}`} />
@@ -106,7 +106,7 @@ export function WhatsAppCta() {
   return (
     <section className="bg-ink-soft text-ink-foreground">
       <div className="wrap flex flex-col items-start gap-8 py-20 md:flex-row md:items-center md:justify-between">
-        <div className="max-w-xl">
+        <div className="reveal max-w-xl">
           <p className="eyebrow">Start Your Journey</p>
           <h2 className="mt-3 text-3xl md:text-5xl">Let's design a home that feels like you.</h2>
         </div>
@@ -116,5 +116,27 @@ export function WhatsAppCta() {
         </div>
       </div>
     </section>
+  );
+}
+
+export function useReveal() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal:not(.is-visible)");
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } }),
+      { threshold: 0.12 },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [path]);
+}
+
+export function FloatingWhatsApp() {
+  return (
+    <a href={WA_LINK} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="float-wa btn btn-gold !rounded-full !px-5 !py-4">
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+      <span className="hidden sm:inline">WhatsApp</span>
+    </a>
   );
 }

@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Header, Footer } from "../components/site-shell";
+import { Header, Footer, useReveal, FloatingWhatsApp } from "../components/site-shell";
 
 function NotFoundComponent() {
   return (
@@ -123,6 +123,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useReveal();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -132,6 +133,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </QueryClientProvider>
   );
 }

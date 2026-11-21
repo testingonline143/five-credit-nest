@@ -22,8 +22,8 @@ function Process() {
       <PageHero eyebrow="Our Process" title="From First Conversation to Finished Home." img={IMG.office} />
       <section className="wrap grid gap-8 py-24 md:grid-cols-2">
         {STEPS.map((s) => (
-          <article key={s.n} className="overflow-hidden rounded bg-card">
-            <img src={s.img} alt={s.title} className="aspect-[16/9] w-full object-cover" loading="lazy" />
+          <article key={s.n} className="reveal card-lift group overflow-hidden rounded bg-card">
+            <div className="overflow-hidden"><img src={s.img} alt={s.title} className="img-zoom aspect-[16/9] w-full object-cover" loading="lazy" /></div>
             <div className="p-8">
               <p className="eyebrow">Step {s.n}</p>
               <h2 className="mt-2 text-3xl">{s.title}</h2>
