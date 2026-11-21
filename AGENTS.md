@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Site content (services, contact, process) lives in src/lib/site.ts; pages read from it so details change in one place.
+- Header/footer are rendered in src/routes/__root.tsx around <Outlet />.
