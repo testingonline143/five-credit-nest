@@ -1,12 +1,12 @@
-import kitchen from "@/assets/modular-kitchen.jpg.asset.json";
-import living from "@/assets/living-room.jpg.asset.json";
-import bedroom from "@/assets/master-bedroom.jpg.asset.json";
-import dining from "@/assets/dining-space.jpg.asset.json";
-import bathroom from "@/assets/bathroom.jpg.asset.json";
-import foyer from "@/assets/foyer-panelling.jpg.asset.json";
-import office from "@/assets/home-office.jpg.asset.json";
-import home from "@/assets/home-interior.jpg.asset.json";
-import logo from "@/assets/vaaradhi-logo.png.asset.json";
+import kitchen from "@/assets/modular-kitchen.webp.asset.json";
+import living from "@/assets/living-room.webp.asset.json";
+import bedroom from "@/assets/master-bedroom.webp.asset.json";
+import dining from "@/assets/dining-space.webp.asset.json";
+import bathroom from "@/assets/bathroom.webp.asset.json";
+import foyer from "@/assets/foyer-panelling.webp.asset.json";
+import office from "@/assets/home-office.webp.asset.json";
+import home from "@/assets/home-interior.webp.asset.json";
+import logo from "@/assets/vaaradhi-logo-trim.png.asset.json";
 
 export const BRAND = "VAARADHI INNOVATIONS";
 export const PHONE_DISPLAY = "+91 9620914914";

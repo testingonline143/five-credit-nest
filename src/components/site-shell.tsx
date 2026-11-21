@@ -8,7 +8,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b bg-card/95 backdrop-blur">
       <div className="wrap flex h-20 items-center justify-between">
         <Link to="/" onClick={() => setOpen(false)} aria-label={BRAND}>
-          <img src={LOGO} alt={`${BRAND} logo`} className="h-16 w-auto" />
+          <img src={LOGO} alt={`${BRAND} logo`} className="h-12 w-auto md:h-14" />
         </Link>
         <nav className="hidden items-center gap-7 lg:flex">
           {NAV.map((n) => (
@@ -45,7 +45,7 @@ export function Footer() {
     <footer className="bg-ink text-ink-foreground">
       <div className="wrap grid gap-10 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
-          <img src={LOGO} alt={`${BRAND} logo`} className="h-20 w-auto rounded bg-card p-1" />
+          <img src={LOGO} alt={`${BRAND} logo`} className="h-16 w-auto rounded bg-card p-2" />
           <p className="mt-4 font-display text-xl">{BRAND}</p>
           <p className="mt-3 text-sm text-ink-foreground/70">Residential interior design and home interiors in Whitefield, Bengaluru.</p>
         </div>

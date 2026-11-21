@@ -90,3 +90,5 @@
 @keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 55%, transparent); } 70%, 100% { box-shadow: 0 0 0 16px transparent; } }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .ken-burns, .marquee { animation: none; } }
+@utility snap-row { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; &::-webkit-scrollbar { display: none; } & > * { scroll-snap-align: start; flex: 0 0 82%; } @media (min-width: 768px) { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; & > * { flex: none; } } }
+@utility glass { background: color-mix(in oklab, var(--ink) 55%, transparent); backdrop-filter: blur(14px); border: 1px solid color-mix(in oklab, var(--ink-foreground) 14%, transparent); }
