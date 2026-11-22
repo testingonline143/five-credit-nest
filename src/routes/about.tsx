@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { IMG } from "@/lib/site";
-import { PageHero, SectionTitle, WhatsAppCta } from "@/components/site-shell";
+import { SectionTitle, WhatsAppCta } from "@/components/site-shell";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -21,20 +20,27 @@ const VALUES = ["Thoughtful Design", "Functionality", "Transparency", "Craftsman
 function About() {
   return (
     <>
-      <PageHero eyebrow="About Us" title="More Than Interiors. A Reflection of You." img={IMG.home} />
-      <section className="wrap grid items-center gap-12 py-24 md:grid-cols-2">
-        <img src={IMG.dining} alt="Dining space interior" className="aspect-[4/3] w-full rounded object-cover" loading="lazy" />
-        <SectionTitle eyebrow="Who We Are" title="A home interior studio in Whitefield, Bengaluru." text="VAARADHI INNOVATIONS, led by K Ashok Kumar, designs residential interiors that balance beauty with everyday practicality. We take time to understand your routines, preferences and budget, then shape spaces that feel genuinely yours." />
+      <section className="wrap pb-14 pt-16 md:pb-20 md:pt-24">
+        <div className="max-w-3xl">
+          <p className="eyebrow">About Us</p>
+          <h1 className="mt-4 text-4xl leading-tight md:text-6xl">More Than Interiors. <em className="text-gold">A Reflection of You.</em></h1>
+          <div className="gold-rule mt-6" />
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            VAARADHI INNOVATIONS is a home interior studio in Whitefield, Bengaluru, led by K Ashok Kumar. We design residential interiors that balance beauty with everyday practicality, taking time to understand your routines, preferences and budget before shaping spaces that feel genuinely yours.
+          </p>
+        </div>
       </section>
-      <section className="bg-ink py-24 text-ink-foreground">
-        <div className="wrap grid items-center gap-12 md:grid-cols-[1fr_1.4fr]">
-          <div className="reveal">
-            <p className="eyebrow">Meet the Founder</p>
-            <h2 className="mt-3 text-3xl md:text-5xl">K Ashok Kumar</h2>
-            <div className="gold-rule mt-5" />
-            <p className="mt-5 font-display text-xl italic text-gold md:text-2xl">Founder, VAARADHI INNOVATIONS</p>
+      <section className="bg-ink py-16 text-ink-foreground md:py-24">
+        <div className="wrap grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-center md:gap-12">
+          <div className="flex items-center gap-5 md:block">
+            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-gold font-display text-3xl text-gold md:h-28 md:w-28 md:text-4xl">KA</div>
+            <div className="md:mt-6">
+              <p className="eyebrow">Meet the Founder</p>
+              <h2 className="mt-2 text-3xl md:text-5xl">K Ashok Kumar</h2>
+              <p className="mt-2 font-display text-lg italic text-gold md:text-2xl">Founder, VAARADHI INNOVATIONS</p>
+            </div>
           </div>
-          <div className="reveal space-y-5 leading-relaxed text-ink-foreground/80">
+          <div className="space-y-5 leading-relaxed text-ink-foreground/80">
             <p>
               Ashok founded VAARADHI INNOVATIONS with a simple belief: a home should be designed around the people who live in it. He leads every project personally, from the first conversation to the final installation, so nothing gets lost between idea and execution.
             </p>
@@ -47,7 +53,7 @@ function About() {
           </div>
         </div>
       </section>
-      <section className="bg-secondary py-24">
+      <section className="bg-secondary py-16 md:py-24">
         <div className="wrap grid gap-6 md:grid-cols-2">
           <div className="reveal card-lift rounded bg-card p-10">
             <p className="eyebrow">Our Vision</p>
@@ -59,7 +65,7 @@ function About() {
           </div>
         </div>
       </section>
-      <section className="wrap py-24">
+      <section className="wrap py-16 md:py-24">
         <SectionTitle eyebrow="Our Values" title="What guides every project." center text="Our approach is customer-focused: you are involved at every stage, decisions are explained clearly, and details are never an afterthought." />
         <div className="mt-12 flex flex-wrap justify-center gap-3">
           {VALUES.map((v) => <span key={v} className="rounded border px-5 py-3 text-sm font-semibold uppercase tracking-[0.14em]">{v}</span>)}
