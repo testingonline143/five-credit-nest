@@ -79,7 +79,8 @@
 @keyframes fade-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 /* Engagement: scroll reveal, slow hero zoom, marquee, floating WhatsApp */
-@utility reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(.2,.7,.2,1); &.is-visible { opacity: 1; transform: none; } }
+.reveal { transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.7,.2,1); }
+.reveal-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(24px); }
 @utility ken-burns { animation: ken-burns 18s ease-out both; }
 @utility marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; }
 @utility float-wa { position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 60; box-shadow: 0 12px 30px -8px color-mix(in oklab, var(--ink) 55%, transparent); animation: pulse-ring 2.6s ease-out infinite; }
@@ -89,6 +90,6 @@
 @keyframes ken-burns { from { transform: scale(1.12); } to { transform: scale(1); } }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 55%, transparent); } 70%, 100% { box-shadow: 0 0 0 16px transparent; } }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .ken-burns, .marquee { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .reveal, .reveal-ready .reveal:not(.is-visible) { opacity: 1; transform: none; } .ken-burns, .marquee { animation: none; } }
 @utility snap-row { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; &::-webkit-scrollbar { display: none; } & > * { scroll-snap-align: start; flex: 0 0 82%; } @media (min-width: 768px) { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; & > * { flex: none; } } }
 @utility glass { background: color-mix(in oklab, var(--ink) 55%, transparent); backdrop-filter: blur(14px); border: 1px solid color-mix(in oklab, var(--ink-foreground) 14%, transparent); }

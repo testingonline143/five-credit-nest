@@ -122,13 +122,25 @@ export function WhatsAppCta() {
 export function useReveal() {
   const path = useRouterState({ select: (s) => s.location.pathname });
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal:not(.is-visible)");
+    const root = document.documentElement;
+    root.classList.add("reveal-ready");
+    const show = (el: Element) => el.classList.add("is-visible");
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll(".reveal").forEach(show);
+      return;
+    }
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } }),
-      { threshold: 0.12 },
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }),
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" },
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    const scan = () => document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => io.observe(el));
+    scan();
+    // Pages load in pieces; watch for new sections so nothing stays hidden.
+    const mo = new MutationObserver(scan);
+    mo.observe(document.body, { childList: true, subtree: true });
+    // Safety net: never leave content invisible.
+    const t = window.setTimeout(() => document.querySelectorAll(".reveal:not(.is-visible)").forEach(show), 2500);
+    return () => { io.disconnect(); mo.disconnect(); window.clearTimeout(t); };
   }, [path]);
 }
 
