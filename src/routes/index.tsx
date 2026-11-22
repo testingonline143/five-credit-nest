@@ -67,7 +67,7 @@ function Home() {
       {/* Intro */}
       <section className="wrap grid items-center gap-12 py-24 md:grid-cols-2">
         <div>
-          <SectionTitle eyebrow="Welcome to VAARADHI INNOVATIONS" title="Interiors designed around the way you live." text="We are a residential interior design studio in Whitefield, Bengaluru. Good design is more than appearance: it is how a space works, how it feels and how well it reflects the people who live in it. We guide you from the first idea to the finished home." />
+          <SectionTitle eyebrow="Welcome to VAARADHI INNOVATIONS" title="Interiors designed around the way you live." text="We are a residential interior design studio in Whitefield, Bengaluru, founded and led by K Ashok Kumar. Good design is more than appearance: it is how a space works, how it feels and how well it reflects the people who live in it. We guide you from the first idea to the finished home." />
           <Link to="/about" className="btn btn-line reveal mt-8">About Us</Link>
         </div>
         <div className="reveal relative">

@@ -26,6 +26,27 @@ function About() {
         <img src={IMG.dining} alt="Dining space interior" className="aspect-[4/3] w-full rounded object-cover" loading="lazy" />
         <SectionTitle eyebrow="Who We Are" title="A home interior studio in Whitefield, Bengaluru." text="VAARADHI INNOVATIONS, led by K Ashok Kumar, designs residential interiors that balance beauty with everyday practicality. We take time to understand your routines, preferences and budget, then shape spaces that feel genuinely yours." />
       </section>
+      <section className="bg-ink py-24 text-ink-foreground">
+        <div className="wrap grid items-center gap-12 md:grid-cols-[1fr_1.4fr]">
+          <div className="reveal">
+            <p className="eyebrow">Meet the Founder</p>
+            <h2 className="mt-3 text-3xl md:text-5xl">K Ashok Kumar</h2>
+            <div className="gold-rule mt-5" />
+            <p className="mt-5 font-display text-xl italic text-gold md:text-2xl">Founder, VAARADHI INNOVATIONS</p>
+          </div>
+          <div className="reveal space-y-5 leading-relaxed text-ink-foreground/80">
+            <p>
+              Ashok founded VAARADHI INNOVATIONS with a simple belief: a home should be designed around the people who live in it. He leads every project personally, from the first conversation to the final installation, so nothing gets lost between idea and execution.
+            </p>
+            <p>
+              His expertise spans space planning, modular kitchen design, material and finish selection, and end-to-end project coordination. Homeowners value his straightforward approach: honest guidance on what works, clear explanations of options and costs, and a steady hand through every stage of the journey.
+            </p>
+            <p className="text-ink-foreground/60">
+              Based in Whitefield, Bengaluru, he works closely with each family to turn their vision into a home that is beautiful, practical and unmistakably theirs.
+            </p>
+          </div>
+        </div>
+      </section>
       <section className="bg-secondary py-24">
         <div className="wrap grid gap-6 md:grid-cols-2">
           <div className="reveal card-lift rounded bg-card p-10">
